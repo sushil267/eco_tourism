@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Travel-mate Bootstarp Website Template | Home :: w3layouts</title>
+		<!-- web-font -->
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+		<!-- web-font -->
+		<!-- js -->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/modernizr.custom.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+		<!-- js -->
+		<script src="js/modernizr.custom.js"></script>
+		<!-- start-smoth-scrolling -->
+		<script type="text/javascript" src="js/move-top.js"></script>
+		<script type="text/javascript" src="js/easing.js"></script>
+		<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+		</script>
+        <style>
+                /*-- booking --*/
+.booking{
+	padding: 2em 0 0 0;
+}
+.booking-info h3{
+	text-align: center;
+	font-size: 30px;
+	margin: 0 0 1em 0;
+	color: #323232;
+	text-transform: uppercase;
+}
+/* start booking_room */
+.booking-form{
+	padding: 0 0 2em 0;
+}
+.booking_room h4{
+	font-size: 1.5em;
+	color: #202020;
+	text-transform: capitalize;
+	font-weight: 600;
+	margin-bottom: 10px;
+}
+.booking_room p{
+	font-size: 0.8725em;
+	color: #6b6b6b;
+	line-height: 1.8em;
+}
+.reservation{
+	padding: 16px 10px 32px 0;
+	background: #719BD3;
+}
+.reservation ul {
+	padding: 0;
+	margin: 0;
+}
+.reservation ul li{
+	float: left;
+	list-style:none;
+}
+.reservation ul li.left{
+	margin-left: 15px;
+}
+.reservation ul li.span1_of_1{
+	width: 24.33333%;
+	margin-left: 5.5em;
+}
+.reservation ul li.span1_of_2{
+	width: 9.33333%;
+}
+.reservation ul li.span1_of_3{
+	width: 13.33333%;
+	margin-left: 5.5em;
+}
+.reservation h5{
+	font-size: 18px;
+	color: #FFD700;
+	text-transform: capitalize;
+	margin-bottom: 6px;
+}
+select {
+	width: 100%;
+	color: #9F9F9F!important;
+	font-size: 14px!important;
+	padding: 8px 10px;
+	outline: none;
+	font-family: 'Open Sans', sans-serif;
+	background: #ffffff;
+	border: 1px solid #DFDFDF;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-o-border-radius: 3px;
+}
+select option{
+	border: 1px solid #DFDFDF;
+	outline: none;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+.book_date input[type="text"]{
+	width: 100% !important;
+	color: #9F9F9F;
+	font-size: 14px;
+	padding: 8px 23px;
+	outline: none;
+	border: none;
+	-webkit-appearance: none;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-o-border-radius: 3px;
+}
+.date{
+	background:url(../images/icon.png) no-repeat 3% 50% #FFF;
+}
+.date_btn{
+	margin:37px 0 0 0px;
+}
+.date_btn form input[type="submit"] {
+	text-transform:capitalize;
+	width: 90% !important;
+	background: #FFD700;
+	color: #2A2E33;
+	padding: 8px 10px;
+	border: none;
+	font-size: 16px;
+	outline: none;
+	font-weight:600;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-o-border-radius: 3px;
+}
+.date_btn form input[type="submit"]:hover{
+	background: #00CCFF;
+	transition: 0.5s all;
+	-webkit-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	-ms-transition: 0.5s all;
+}
+.booking-grids h3{
+	font-size: 18px;
+	margin: 0;
+	color: #323232;
+	font-weight: 600;
+}
+.booking-grid-left{
+	padding: 0!important;
+	margin-top: 2em;
+}
+.booking-grid-left h4{
+	font-size: 16px;
+	margin: 0;
+	line-height: 1.7em;
+	color: #616060;
+	font-weight: 500;
+}
+.booking-grid-left p{
+	color: #8c8c8c;
+	font-size: 14px;
+	line-height: 1.7em;
+	margin: 1em 0 0 0;
+}
+.booking-grid-right img{
+	width:100%;
+}
+.red{
+	text-align: left;
+	margin-top: 2em;
+}
+.red a{
+	padding: .8em 1em;
+	font-size: 16px;
+}
+
+        </style>
+		<!-- start-smoth-scrolling -->
+	</head>
+	<body>
+		<!-- booking -->
+		<div class="booking">
+			<!-- container -->
+			<div class="container">
+				<div class="booking-info">
+					<h3>booking</h3>
+				</div>
+				<div class="booking-form">
+					<!---strat-date-piker---->
+					<link rel="stylesheet" href="css/jquery-ui.css" />
+					<script src="js/jquery-ui.js"></script>
+							  <script>
+									  $(function() {
+										$( "#datepicker,#datepicker1" ).datepicker();
+									  });
+							  </script>
+					<!---/End-date-piker---->
+					<div class="online_reservation">
+							<div class="b_room">
+								<div class="booking_room">
+									<div class="reservation">
+										<ul>		
+											<li  class="span1_of_1 left">
+												 <h5>From</h5>
+												 <div class="book_date">
+													 <form>
+														<input type="text" placeholder="Type Depature City" required="">
+													 </form>
+												 </div>					
+											 </li>
+											 <li  class="span1_of_1 left">
+												 <h5>To</h5>
+												 <div class="book_date">
+												 <form>
+													<input type="text" placeholder="Type Destination City" required="">
+												 </form>
+												 </div>		
+											 </li>
+											 <li  class="span1_of_1 left">
+												 <h5>Arrival</h5>
+												 <div class="book_date">
+													 <form>
+													 <input class="date" id="datepicker" type="text" value="2/08/2013" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '2/08/2013';}" required=>
+													 </form>
+												 </div>					
+											 </li>
+											 <li  class="span1_of_1 left">
+												 <h5>Depature</h5>
+												 <div class="book_date">
+												 <form>
+													<input class="date" id="datepicker1" type="text" value="22/08/2013" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '22/08/2013';}" required=>
+												 </form>
+												 </div>		
+											 </li>
+											 <li class="span1_of_1">
+												 <h5>Class</h5>
+												 <!----------start section_room----------->
+												 <div class="section_room">
+													  <select id="country" onchange="change_country(this.value)" class="frm-field required">
+															<option value="null">Economy</option>
+															<option value="null">Business</option>         
+															<option value="AX">First Class</option>
+															<option value="AX">Premium Economy</option>
+													  </select>
+												 </div>	
+											 </li>
+											 <li class="span1_of_3">
+													<div class="date_btn">
+														<form>
+															<input type="submit" value="Find Flight" />
+														</form>
+													</div>
+											 </li>
+											 <div class="clearfix"></div>
+										</ul>
+									 </div>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+					</div>
+                </div>
+			</div>
+		</div>		
+	</body>
+</html>

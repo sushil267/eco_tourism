@@ -1,0 +1,20 @@
+<p class="id2"></p>
+<script src="jquery.js"></script>
+<script>
+var urlParams = new URLSearchParams(window.location.search);
+var keys = urlParams.keys();
+for(key of keys) { 
+  console.log(key); 
+}
+// post
+// action
+
+var entries = urlParams.entries();
+for(pair of entries) { 
+  $(".id2").append(pair[1]);
+}
+
+
+
+
+</script>

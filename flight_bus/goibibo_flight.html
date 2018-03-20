@@ -1,0 +1,93 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, maximum-scale=1">
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<div id="train_list" style="display:;">
+    <div class="container">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Flight No</th>
+            <th>Flight Name</th>
+           <th>Departure Time</th>
+             <th>Arrival Time</th>
+            <th>Travel Time</th>
+             <th>Total Fare</th>
+            <th>Stops</th>
+           >
+          </tr>
+        </thead>
+        <tbody id="train_data">
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
+
+<script>
+
+
+        var array_data=new Array(3);
+var urlParams = new URLSearchParams(window.location.search);
+var keys = urlParams.keys();
+for(key of keys) { 
+  
+}
+// post
+// action
+var j=0;
+var entries = urlParams.entries();
+for(pair of entries) { 
+  array_data[j++]=pair[1];
+}
+    
+  function cityto_iota_code(city_name)
+  { var iota_code;
+    $.ajax({
+                type:'POST',
+                url:'cityto_iota_code.php',
+                data:'city_name='+city_name,
+                async:false,
+                success:function(response){
+                iota_code=response;
+         },
+         }); 
+    return iota_code;
+  }
+
+	var city_src=array_data[0];
+	var dest_city=array_data[1];
+  var src_iota=cityto_iota_code(city_src);
+  console.log(src_iota);
+  var dest_iota=cityto_iota_code(dest_city);
+
+	var dot=array_data[2];
+  var flight_data;
+  
+$.ajax({
+       
+        url:"http://developer.goibibo.com/api/search/?app_id=3e749b40&app_key=5b13b209db122a4b31eb7153eaca8dfe&format=json&source="+src_iota+"&destination="+dest_iota+"&dateofdeparture="+dot+"&seatingclass=E&adults=1&children=0&infants=0&counter=100",
+       
+        async:false,
+        success:function(response){
+         flight_data=response.data.onwardflights;
+       
+        },    
+      }); 
+for(var i=0;i<flight_data.length;i++)
+ $('#train_data').append('<tr><td>'+flight_data[i].FlHash+'</td><td>'+flight_data[i].airline+'</td><td>'+flight_data[i].deptime+'</td><td>'+flight_data[i].arrtime+'</td><td>'+flight_data[i].duration
++'</td><td>'+flight_data[i].fare.totalfare+'</td><td>'+flight_data[i].stops+'</tr>')
+
+
+
+
+</script>

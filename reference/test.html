@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.1/assets/owl.carousel.min.css'>
+<link rel='stylesheet prefetch' href='http://themes.audemedia.com/html/goodgrowth/css/owl.theme.default.min.css'>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<ul id="hotels"></ul>
+<section class="testimonials">
+	<div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div id="customers-testimonials" class="owl-carousel">
+            <!--TESTIMONIAL here -->
+          </div>
+        </div>
+      </div>
+      </div>
+ </section>
+ 
+    <!-- END OF TESTIMONIALS -->
+    
+    
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.1/owl.carousel.min.js'></script>
+
+    <script  src="index.js"></script>
+
+
+</body>
+<script>
+var res,res1;
+var code;
+ $.ajax({
+        url:"https://developers.zomato.com/api/v2.1/cities?q=Jaipur",
+        headers:{'user-key': 'f188ecd5a8b8d5b9d3adb6863206b3d6'},
+        dataType:"json",
+        async:false,
+        success:function(response){
+          res = response;
+        },
+    }); 
+   console.log(res.location_suggestions[0].id);
+   code=res.location_suggestions[0].id
+$.ajax({
+        url:"https://developers.zomato.com/api/v2.1/search?entity_id="+code+"&entity_type=city",
+        headers:{'user-key': 'f188ecd5a8b8d5b9d3adb6863206b3d6'},
+        dataType:"json",
+        async:false,
+        success:function(response){
+          res1 = response;
+        },
+    });
+    for(var i=0;i<res1.restaurants.length;i++)
+    {
+        $("#customers-testimonials").append("<div class='item card'><div class='shadow-effect x'><img class='img-square' src="+res1.restaurants[i].restaurant.featured_image+" alt=''><h3><span class='label label-danger'>"+res1.restaurants[i].restaurant.user_rating.aggregate_rating
++" / 5</span></h1></h3></div><div class='row'><div class='col-md-12'><div class='testimonial-name'>"+res1.restaurants[i].restaurant.name+"</div></div><div class='row'><div class='col-md-12'><a href="+
+res1.restaurants[i].restaurant.url+">More Details</a> </div></div></div></div>");
+    } 
+    console.log(res1);
+</script>
+
+
+</html>

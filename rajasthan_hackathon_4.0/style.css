@@ -1,0 +1,71 @@
+.shadow-effect {
+		    background: lightgrey;
+		    padding: 20px;
+		    border-radius: 4px;
+		    text-align: center;
+            height:400px;
+	border:1px solid #ECECEC;
+		    -webkit-box-shadow: 0 19px 38px rgba(0,0,0,0.10), 0 15px 12px rgba(0,0,0,0.02);
+		            box-shadow: 0 19px 38px rgba(0,0,0,0.10), 0 15px 12px rgba(0,0,0,0.02);
+		}
+		#customers-testimonials .shadow-effect p {
+		   font-family: 'Kaushan Script', cursive;text-shadow: 0px 1px 2px black;
+		    font-size: 20px;
+		    line-height: 1.5;
+		    margin: 0 0 17px 0;
+		    font-weight: 300;
+		}
+		.testimonial-name {
+		    margin: -57px auto 0;
+		    display: table;
+		    width: auto;
+		   
+		    padding: 9px 35px;
+		   
+		    text-align: center;
+		    color: #fff;
+		    font-family: 'Catamaran', sans-serif;
+                    font-weight:bolder;
+		}
+		#customers-testimonials .item {
+		    text-align: center;
+		    margin-bottom:80px;
+		    opacity: .2;
+            height: 400px;
+		    -webkit-transform: scale3d(0.8, 0.8, 1);
+		    transform: scale3d(0.8, 0.8, 1);
+		    -webkit-transition: all 0.3s ease-in-out;
+		    transition: all 0.3s ease-in-out;
+		}
+		#customers-testimonials .owl-item.active.center .item {
+		    opacity: 1;
+		    -webkit-transform: scale3d(1.0, 1.0, 1);
+		    transform: scale3d(1.0, 1.0, 1);
+            width:80%;
+            margin-left: 40px;
+		}
+		.owl-carousel .owl-item img {
+		    -webkit-transform-style: preserve-3d;
+		            transform-style: preserve-3d;
+		    width: 100%;
+            height:250px;
+    		
+		}
+		#customers-testimonials.owl-carousel.owl-theme .owl-dots .owl-dot.active span, #customers-testimonials.owl-carousel.owl-theme .owl-dots .owl-dot:hover span {
+		    background: #28CB75;
+		    -webkit-transform: translate3d(0px, -50%, 0px) scale(0.7);
+		            transform: translate3d(0px, -50%, 0px) scale(0.7);
+		}
+		#customers-testimonials.owl-carousel.owl-theme .owl-dots .owl-dot span {
+		    background: #C4C4CC;
+		    display: block;
+		    height: 20px;
+		    margin: 0 2px 5px;
+		    -webkit-transform: translate3d(0px, -50%, 0px) scale(0.3);
+		            transform: translate3d(0px, -50%, 0px) scale(0.3);
+		    -webkit-transform-origin: 50% 50% 0;
+		            transform-origin: 50% 50% 0;
+		    -webkit-transition: all 250ms ease-out 0s;
+		    transition: all 250ms ease-out 0s;
+		    width: 20px;
+		}

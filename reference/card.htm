@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Scrolling Bootstrap Card Carousel</title>
+  
+  
+  <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
+
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+
+  <div class="container-fluid">
+  <h1 class="text-center mb-3">Bootstrap Multi-Card Carousel</h1>
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    
+    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+<script>
+var res,res1;
+var code;
+ $.ajax({
+        url:"https://developers.zomato.com/api/v2.1/cities?q=Jaipur",
+        headers:{'user-key': 'f188ecd5a8b8d5b9d3adb6863206b3d6'},
+        dataType:"json",
+        async:false,
+        success:function(response){
+          res = response;
+        },
+    }); 
+   console.log(res.location_suggestions[0].id);
+   code=res.location_suggestions[0].id
+$.ajax({
+        url:"https://developers.zomato.com/api/v2.1/search?entity_id="+code+"&entity_type=city",
+        headers:{'user-key': 'f188ecd5a8b8d5b9d3adb6863206b3d6'},
+        dataType:"json",
+        async:false,
+        success:function(response){
+          res1 = response;
+        },
+    });
+    for(var i=0;i<res1.restaurants.length;i++)
+    {
+        $("#myCarousel").append("<div class='carousel-inner row w-100 mx-auto'>"+
+      "<div class='carousel-item col-md-4'>"+
+        "<div class='card'><img class='card-img-top img-fluid' src='http://placehold.it/800x600/f44242/fff' alt='Card image cap'>"+
+          "<div class='card-body'>"+
+           " <h4 class='card-title'>Card 1</h4>"+
+            "<p class='card-text'>This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>"+
+            "<p class='card-text'><small class='text-muted'>Last updated 3 mins ago</small></p>"+
+          "</div></div></div>");
+        
+     } 
+    console.log(res1);
+</script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.1/owl.carousel.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js'></script>
+
+  
+
+    <script  src="js/index.js"></script>
+
+
+
+
+</body>
+
+</html>

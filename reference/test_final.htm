@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Place search pagination</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   
+    
+  <body>
+  
+  <div class="container">
+  <div class="row">
+  <div class="col-sm-6 col-xs-12 col-lg-6">
+         <div id="map"></div>
+    <div id="map1"></div>
+  </div>
+  
+  <div class="col-sm-6 col-xs-12 col-lg-6">
+  <div class="form-group">  
+   <label for="sel1">Where are you staying?</label>
+  <input type="text" class="form-control" id="sou"/>
+   </div>
+  <div class="form-group">
+  <label for="sel1">Places you want to visit:</label>
+         <select multiple class="form-control" id="waypoints" >
+      
+     
+    </select>
+    </div>
+    
+      <button class="btn btn-primary" type="submit" id="submit">Submit</button>
+  </div>
+  
+  </div>
+  
+  </div>
+
+    
+    
+  
+    
+  
+   <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   
+    <script>
+     var url_string =window.location.href ; //
+var url = new URL(url_string);
+var a = url.searchParams.get("q");
+var b = url.searchParams.get("lat");
+var c = url.searchParams.get("lng");
+console.log(a);
+           
+      var map;
+
+      function initMap(){
+        window.directionsService = new google.maps.DirectionsService;
+        window.directionsDisplay = new google.maps.DirectionsRenderer;
+        var pyrmont = {lat:parseFloat(b),lng:  parseFloat(c)};
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: pyrmont,
+          zoom: 12
+        });
+
+         var request = {
+    location: pyrmont,
+    radius: '500',
+    query: 'attractions'
+  };
+
+  service = new google.maps.places.PlacesService(map);
+  service.textSearch(request, callback);
+      }
+
+
+function createMarker(place) {
+
+    new google.maps.Marker({
+        position: place.geometry.location,
+        map: map
+    });
+}
+    function callback(results, status) {
+  if (status == google.maps.places.PlacesServiceStatus.OK) {
+    //
+    for (var i = 0; i < results.length; i++) {
+      window.place = results[i];
+      // console.log(place);
+      var pics = place.photos;
+      if(pics && place.rating>4 && place.rating!=5 && place.opening_hours ){
+   
+        console.log({"place":place.name,"lat":place.geometry.location.lat(),"long":place.geometry.location.lng()});
+    $('#waypoints').append('<option value="'+place.name+'">'+place.name+'</option>');
+     }
+    }
+  }
+}
+
+var wayP;
+ document.getElementById('submit').addEventListener('click', function() {
+          wayP = $('#waypoints').val();
+          var w='';
+           for(var i =0;i<wayP.length;i++){
+            console.log(i);
+            if((i+1)==wayP.length)
+              w = w + wayP[i];
+            else
+              w = w + wayP[i]+'|';
+ }
+ 
+ var sou = $('#sou').val();
+ console.log(sou);
+ console.log(' <iframe width="400px" height="450" frameborder="0" style="border:0"src="https://www.google.com/maps/embed/v1/directions?origin='+sou+'&destination='+sou+'&key=AIzaSyCWHMM9L0yDWYFv1BqtXrug7pYuAYjGgGQ&waypoints='+w+'&avoid=tolls|highways|ferries&mode=driving" allowfullscreen></iframe>');
+ $('#map1').html(' <iframe width="100%" height="450" frameborder="0" style="border:0"src="https://www.google.com/maps/embed/v1/directions?origin='+sou+'&destination='+sou+'&key=AIzaSyCWHMM9L0yDWYFv1BqtXrug7pYuAYjGgGQ&waypoints='+w+'&avoid=tolls|highways|ferries&mode=driving" allowfullscreen></iframe>');
+        });
+
+
+    </script>
+   
+       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXdLBd_7gZTK2rD2Z7F21XvjM8bIjFyXA&libraries=places&callback=initMap" async="false" defer="false"></script>
+    
+
+  </body>
+</html>

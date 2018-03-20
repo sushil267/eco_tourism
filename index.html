@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<!--[if IE 7 ]><html class="ie ie7 lte9 lte8 lte7" lang="en-US"><![endif]-->
+<!--[if IE 8]><html class="ie ie8 lte9 lte8" lang="en-US">	<![endif]-->
+<!--[if IE 9]><html class="ie ie9 lte9" lang="en-US"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html class="noIE" lang="en-US">
+<!--<![endif]-->
+	<head>
+		<!-- meta -->
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no"/>
+	<title>Rajasthan Tourism</title>
+
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/ionicons.min.css">
+	<link rel="stylesheet" href="assets/css/owl.carousel.css">
+	<link rel="stylesheet" href="assets/css/owl.theme.css">
+	<link rel="stylesheet" href="assets/css/flexslider.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+			<!--[if lt IE 9]>
+				<script src="assets/js/html5shiv.js"></script>
+				<script src="assets/js/respond.js"></script>
+			<![endif]-->
+
+			<!--[if IE 8]>
+		    	<script src="assets/js/selectivizr.js"></script>
+		    <![endif]-->
+</head>
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+		<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="index.html" title="HOME"><img src="pmd.png" class="img-responsive" height="50px" width="50px" style="display: inline-block;"/> Rajasthan <span>Tourism</span></a>
+			</div> <!-- /.navbar-header -->
+
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="active"><a href="index.html">Home</a></li>
+					<li><a href="about.html">about</a></li>
+					<li><a href="services.html">services</a></li>
+					<li><a href="contact.html">contact</a></li>
+				</ul> <!-- /.nav -->
+		    </div><!-- /.navbar-collapse -->
+	  	</div><!-- /.container -->
+	</nav>
+    
+    <style>
+    #locationField, #controls {
+        position: relative;
+      }
+      #autocomplete {
+      
+        top: 0px;
+        left: 0px;
+        width: 100%;
+      }
+       .pac-container {
+        z-index: 10000 !important;
+    }
+    .active, .btn:hover 
+    {
+    background-color: #666;
+    color: white;
+    }
+    </style>
+
+<!-- --------------------------------------------Home----------------------------------------------------------- -->
+		<div id="header">
+		    <div class="flexslider">
+		        <ul class="slides">
+		            <li class="slider-item" style="background-image: url('assets/images/.png')">
+		                <div class="intro container">
+		                    <div class="inner-intro">
+		                        <h1 class="header-title">
+                                </h1>
+                            </div>
+		                </div>
+		            </li> <!-- /.slider-item -->
+		            <li class="slider-item" style="background-image: url('assets/images/.png')">
+		                <div class="intro">
+                  		  <div class="inner-intro">
+		                        <h1 class="header-title">
+		                            to <span>travel</span> is to <span>live</span>
+		                        </h1>
+		                        <p class="header-sub-title">
+		                            it leaves you speecless, then turns your into a storyteller.
+		                        </p>
+		                        <button class="btn custom-btn">
+		                            book now
+		                        </button>
+		                    </div>
+		                </div>
+		            </li> <!-- /.slider-item -->
+		        </ul> <!-- /.slides -->
+		    </div> <!-- /.flexslider -->
+		</div> <!-- /#header -->
+<!-- Find a Tour -->
+	<section class="tour section-wrapper container">
+		<h2 class="section-title">
+			Find a Tour
+		</h2>
+		<p class="section-subtitle">
+			Where would you like to go?
+		</p>
+		<div class="row">
+			<div class="col-md-9">
+				<form role="form" class="form-dropdown">
+					<div id="locationField" class="form-group">
+                      <label for="autocomplete">Location?</label>  
+                      <input id="autocomplete" class="form-control" placeholder="Enter Location" onfocus="geolocate()" type="text" name="place"/>
+                    </div>
+                    
+                <table id="address" style="display: none;">
+                  <tr>
+                    <td class="label">Street address</td>
+                    <td class="slimField"><input class="field" id="street_number" name="street" disabled="true"></td>
+                    <td class="wideField" colspan="2"><input class="field" id="route" name="street" disabled="true"></td>
+                  </tr>
+                  <tr>
+                    <td class="label">City</td><td class="wideField" colspan="3"><input class="field" id="locality" name="city" disabled="true"></td>
+                  </tr>
+                  <tr>
+                    <td class="label">State</td>
+                    <td class="slimField"><input type="text" class="field" id="administrative_area_level_1" disabled="true" name="state"></td>
+                    <td class="label">Zip code</td>
+                    <td class="wideField"><input class="field" id="postal_code" name="zip_code" disabled="true"></td>
+                  </tr>
+                  <tr>
+                    <td class="label">Country</td>
+                    <td class="wideField" colspan="3"><input class="field" id="country" disabled="true"></input></td>
+                  </tr>
+                </table>
+    			</form>
+			</div>
+
+			<div class="col-md-3 ">
+				<input type="submit" id="city_btn" class="btn btn-default" name="search" />
+			</div>
+		</div>
+	</section> <!-- /.tour -->
+
+
+
+
+<!-- Our Blazzing offers -->
+	<section class="offer section-wrapper" id="" style="display:none">
+		<div class="container">
+			<h2 class="section-title">
+				<?php echo $_REQUEST['city']; ?>
+			</h2>
+			<p class="section-subtitle">
+				Lorem Ipsum is simply dummy text of the industry.
+			</p>
+			<div class="row">
+				<div class="col-sm-3 col-xs-6">
+					<div class="offer-item">
+						<div class="icon">
+							<i class="ion-social-euro"></i>
+						</div>
+						<h3>
+							Affordable Pricing
+						</h3>
+						<p>
+							Class aptent taciti sociosutn tora torquent conub nost reptos himenaeos.
+						</p>
+					</div>
+				</div> <!-- /.col-md-3 -->
+
+				<div class="col-sm-3 col-xs-6">
+					<div class="offer-item">
+						<div class="icon">
+							<i class="ion-ios-home"></i>
+						</div>
+						<h3>
+							High class Hotels
+						</h3>
+						<p>
+							Class aptent taciti sociosutn tora torquent conub nost reptos himenaeos.
+						</p>
+					</div>
+				</div> <!-- /.col-md-3 -->
+
+				<div class="col-sm-3 col-xs-6">
+					<div class="offer-item">
+						<div class="icon">
+							<i class="ion-android-bus"></i>
+						</div>
+						<h3>
+							Luxury Transport
+						</h3>
+						<p>
+							Class aptent taciti sociosutn tora torquent conub nost reptos himenaeos.
+						</p>
+					</div>
+				</div> <!-- /.col-md-3 -->
+
+				<div class="col-sm-3 col-xs-6">
+					<div class="offer-item">
+						<div class="icon">
+							<i class="ion-ios-locked"></i>
+						</div>
+						<h3>
+							Highest Security
+						</h3>
+						<p>
+							Class aptent taciti sociosutn tora torquent conub nost reptos himenaeos.
+						</p>
+					</div>
+				</div> <!-- /.col-md-3 -->
+			</div> <!-- /.row -->
+		</div> <!-- /.container -->
+	</section> <!-- /.offer -->
+
+
+<!-- Top place to visit -->
+	<section class="visit section-wrapper">
+		<div class="container">
+			<h2 class="section-title">
+				Top place to visit
+			</h2>
+			<p class="section-subtitle">
+				Lorem Ipsum is simply dummy text of the industry.
+			</p>
+
+			<div class="owl-carousel visit-carousel" id="">
+				<div class="item">
+					<img src="assets/images/visit-1.png" alt="visit-image" class="img-responsive visit-item">
+				</div>
+				<div class="item">
+					<img src="assets/images/visit-2.png" alt="visit-image" class="img-responsive visit-item">
+				</div>
+				<div class="item">
+					<img src="assets/images/visit-3.png" alt="visit-image" class="img-responsive visit-item">
+				</div>
+				<div class="item">
+					<img src="assets/images/visit-1.png" alt="visit-image" class="img-responsive visit-item">
+				</div>
+				<div class="item">
+					<img src="assets/images/visit-2.png" alt="visit-image" class="img-responsive visit-item">
+				</div>
+				<div class="item">
+					<img src="assets/images/visit-3.png" alt="visit-image" class="img-responsive visit-item">
+				</div>
+			</div>
+		</div> <!-- /.container -->
+	</section> <!-- /.visit -->
+
+<div class="offer-cta">
+	<div class="container">
+		<div class="offering">
+			<div class="percent">
+				<span>15%</span> off
+			</div>
+			<div class="FTour">
+				for <strong>Family Tour</strong>
+			</div>
+			<a class="btn btn-default price-btn" href="#">
+				see our price
+			</a>
+		</div> <!-- /.offering -->
+	</div> <!-- /.container -->
+</div> <!-- /.offer-cta -->
+
+	<section class="additional-services section-wrapper">
+		<div class="container">
+			<h2 class="section-title">
+				Additional services
+			</h2>
+			<p class="section-subtitle">
+				Lorem Ipsum is simply dummy text of the industry.
+			</p>
+			<div class="row">
+				<div class="col-md-4 col-sm-6">
+					<div class="custom-table">
+						<img src="assets/images/add-srvc-1.png" alt="" class="add-srvc-img">
+						<div class="add-srvc-detail">
+							<h4 class="add-srvc-heading">
+								Photography
+							</h4>
+							<p class="add-srvc">
+								Etiam pharetra ut ante eget ehy efficitur. Nullam quis felis at nunc vehicula sollicitudin euliquam quis felis atblan dit.
+							</p>
+						</div> <!-- /.add-srvc-detail -->
+					</div> <!-- /.custom-table -->
+				</div> <!-- /.col-md-4 col-sm-6 -->
+
+				<div class="col-md-4 col-sm-6">
+					<div class="custom-table">
+						<img src="assets/images/add-srvc-2.png" alt="" class="add-srvc-img">
+						<div class="add-srvc-detail">
+							<h4 class="add-srvc-heading">
+								Cycling
+							</h4>
+							<p class="add-srvc">
+								Etiam pharetra ut ante eget ehy efficitur. Nullam quis felis at nunc vehicula sollicitudin euliquam quis felis atblan dit.
+							</p>
+						</div> <!-- /.add-srvc-detail -->
+					</div> <!-- /.custom-table -->
+				</div> <!-- /.col-md-4 col-sm-6 -->
+				
+				<div class="col-md-4 col-sm-6">
+					<div class="custom-table">
+						<img src="assets/images/add-srvc-3.png" alt="" class="add-srvc-img">
+						<div class="add-srvc-detail">
+							<h4 class="add-srvc-heading">
+								Waking
+							</h4>
+							<p class="add-srvc">
+								Etiam pharetra ut ante eget ehy efficitur. Nullam quis felis at nunc vehicula sollicitudin euliquam quis felis atblan dit.
+							</p>
+						</div> <!-- /.add-srvc-detail -->
+					</div> <!-- /.custom-table -->
+				</div> <!-- /.col-md-4 col-sm-6 -->
+
+				<div class="col-md-4 col-sm-6">
+					<div class="custom-table">
+						<img src="assets/images/add-srvc-4.png" alt="" class="add-srvc-img">
+						<div class="add-srvc-detail">
+							<h4 class="add-srvc-heading">
+								Skiing
+							</h4>
+							<p class="add-srvc">
+								Etiam pharetra ut ante eget ehy efficitur. Nullam quis felis at nunc vehicula sollicitudin euliquam quis felis atblan dit.
+							</p>
+						</div> <!-- /.add-srvc-detail -->
+					</div> <!-- /.custom-table -->
+				</div> <!-- /.col-md-4 col-sm-6 -->
+
+				<div class="col-md-4 col-sm-6">
+					<div class="custom-table">
+						<img src="assets/images/add-srvc-5.png" alt="" class="add-srvc-img">
+						<div class="add-srvc-detail">
+							<h4 class="add-srvc-heading">
+								Sea beach
+							</h4>
+							<p class="add-srvc">
+								Etiam pharetra ut ante eget ehy efficitur. Nullam quis felis at nunc vehicula sollicitudin euliquam quis felis atblan dit.
+							</p>
+						</div> <!-- /.add-srvc-detail -->
+					</div> <!-- /.custom-table -->
+				</div> <!-- /.col-md-4 col-sm-6 -->
+
+				<div class="col-md-4 col-sm-6">
+					<div class="custom-table">
+						<img src="assets/images/add-srvc-6.png" alt="" class="add-srvc-img">
+						<div class="add-srvc-detail">
+							<h4 class="add-srvc-heading">
+								Hill tracking
+							</h4>
+							<p class="add-srvc">
+								Etiam pharetra ut ante eget ehy efficitur. Nullam quis felis at nunc vehicula sollicitudin euliquam quis felis atblan dit.
+							</p>
+						</div> <!-- /.add-srvc-detail -->
+					</div> <!-- /.custom-table -->
+				</div> <!-- /.col-md-4 col-sm-6 -->
+			</div> <!-- /.row -->
+		</div> <!-- /.container -->
+	</section> <!-- /.Additional-services -->
+
+
+	<div class="section-wrapper sponsor">
+		<div class="container">
+			<div class="owl-carousel sponsor-carousel">
+				<div class="item">
+					<a href="#">
+						<img src="assets/images/sp-1.png" alt="sponsor-brand" class="img-responsive sponsor-item">
+					</a>
+				</div>
+				<div class="item">
+					<a href="#">
+						<img src="assets/images/sp-2.png" alt="sponsor-brand" class="img-responsive sponsor-item">
+					</a>
+				</div>
+				<div class="item">
+					<a href="#">
+						<img src="assets/images/sp-3.png" alt="sponsor-brand" class="img-responsive sponsor-item">
+					</a>
+				</div>
+				<div class="item">
+					<a href="#">
+						<img src="assets/images/sp-4.png" alt="sponsor-brand" class="img-responsive sponsor-item">
+					</a>
+				</div>
+				<div class="item">
+					<a href="#">
+						<img src="assets/images/sp-5.png" alt="sponsor-brand" class="img-responsive sponsor-item">
+					</a>
+				</div>
+				<div class="item">
+					<a href="#">
+						<img src="assets/images/sp-6.png" alt="sponsor-brand" class="img-responsive sponsor-item">
+					</a>
+				</div>
+				<div class="item">
+					<a href="#">
+						<img src="assets/images/sp-1.png" alt="sponsor-brand" class="img-responsive sponsor-item">
+					</a>
+				</div>
+				<div class="item">
+					<a href="#">
+						<img src="assets/images/sp-2.png" alt="sponsor-brand" class="img-responsive sponsor-item">
+					</a>
+				</div>
+				<div class="item">
+					<a href="#">
+						<img src="assets/images/sp-3.png" alt="sponsor-brand" class="img-responsive sponsor-item">
+					</a>
+				</div>
+				<div class="item">
+					<a href="#">
+						<img src="assets/images/sp-4.png" alt="sponsor-brand" class="img-responsive sponsor-item">
+					</a>
+				</div>
+				<div class="item">
+					<a href="#">
+						<img src="assets/images/sp-5.png" alt="sponsor-brand" class="img-responsive sponsor-item">
+					</a>
+				</div>
+				<div class="item">
+					<a href="#">
+						<img src="assets/images/sp-6.png" alt="sponsor-brand" class="img-responsive sponsor-item">
+					</a>
+				</div>
+				<div class="item">
+					<a href="#">
+						<img src="assets/images/sp-1.png" alt="sponsor-brand" class="img-responsive sponsor-item">
+					</a>
+				</div>
+				<div class="item">
+					<a href="#">
+						<img src="assets/images/sp-2.png" alt="sponsor-brand" class="img-responsive sponsor-item">
+					</a>
+				</div>
+				<div class="item">
+					<a href="#">
+						<img src="assets/images/sp-3.png" alt="sponsor-brand" class="img-responsive sponsor-item">
+					</a>
+				</div>
+				<div class="item">
+					<a href="#">
+						<img src="assets/images/sp-4.png" alt="sponsor-brand" class="img-responsive sponsor-item">
+					</a>
+				</div>
+				<div class="item">
+					<a href="#">
+						<img src="assets/images/sp-5.png" alt="sponsor-brand" class="img-responsive sponsor-item">
+					</a>
+				</div>
+				<div class="item">
+					<a href="#">
+						<img src="assets/images/sp-6.png" alt="sponsor-brand" class="img-responsive sponsor-item">
+					</a>
+				</div>
+			</div> <!-- /.owl-carousel -->
+		</div> <!-- /.container -->
+	</div> <!-- /.sponsor -->
+
+	<div class="subscribe section-wrapper">
+		<a class="brand-logo" href="index.html" title="HOME"><i class="ion-paper-airplane"></i> Euro <span>Travel</span></a>
+		<p class="subscribe-now">
+			Subscribe to our Newsletter
+		</p>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
+					<div class="input-group">
+						<input type="email" class="form-control border-radius" placeholder="Email address">
+						<span class="input-group-btn">
+							<button class="btn btn-default border-radius custom-sub-btn" type="button">DONE</button>
+						</span>
+					</div><!-- /input-group -->
+				</div>
+			</div>
+		</div>
+					
+	
+	
+		<ul class="social-icon">
+			<li><a href="#"><i class="ion-social-twitter"></i></a></li>
+			<li><a href="#"><i class="ion-social-facebook"></i></a></li>
+			<li><a href="#"><i class="ion-social-linkedin-outline"></i></a></li>
+			<li><a href="#"><i class="ion-social-googleplus"></i></a></li>
+		</ul>
+	</div> <!-- /.subscribe -->
+
+		
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-4">
+					<div class="text-left">
+						&copy; Copyright Euro Travels
+					</div>
+				</div>
+				<div class="col-xs-4">
+					Theme by <a href="http://www.themewagon.com">THEMEWAGON</a>
+				</div>
+				<div class="col-xs-4">
+					<div class="top">
+						<a href="#header">
+							<i class="ion-arrow-up-b"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>		
+	</footer>
+    
+    
+    <script>
+      var placeSearch, autocomplete;
+      var componentForm = {
+        street_number: 'short_name',
+        route: 'long_name',
+        locality: 'long_name',
+        administrative_area_level_1: 'short_name',
+        country: 'long_name',
+        postal_code: 'short_name'
+      };
+    var cityLat;
+    var cityLong;
+    var place;
+      function initAutocomplete() 
+      {
+        autocomplete = new google.maps.places.Autocomplete(
+            /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+            {types: ['geocode']});
+        // When the user selects an address from the dropdown, populate the address
+        // fields in the form.
+        autocomplete.addListener('place_changed', fillInAddress);
+      }
+
+      function fillInAddress() {
+        // Get the place details from the autocomplete object.
+        place = autocomplete.getPlace();
+        //console.log('test');
+        console.log(place);
+        
+        //console.log(place.address_components.length);
+        
+        for (var component in componentForm) 
+        {
+            //console.log(component);
+          document.getElementById(component).value = '';
+          document.getElementById(component).disabled = false;
+        }
+       
+        
+        
+        // Get each component of the address from the place details
+        // and fill the corresponding field on the form.
+        for (var i = 0; i < place.address_components.length; i++) 
+        {
+          var addressType = place.address_components[i].types[0];
+          //console.log(addressType);
+          if (componentForm[addressType]) 
+          {
+            var val = place.address_components[i][componentForm[addressType]];
+            document.getElementById(addressType).value = val;
+            //console.log(val);
+          }
+        }
+        //console.log(country);
+      }
+
+      // Bias the autocomplete object to the user's geographical location,
+      // as supplied by the browser's 'navigator.geolocation' object.
+      function geolocate() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            cityLat = position.coords.latitude;
+            cityLong = position.coords.longitude;
+            var geolocation = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            var circle = new google.maps.Circle({
+              center: geolocation,
+              radius: position.coords.accuracy
+            });
+            autocomplete.setBounds(circle.getBounds());
+          });
+        }
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBPusPjTEw5ATIXzHH4IwVE72w4xspQYE&libraries=places&callback=initAutocomplete" async defer></script>
+    
+
+	<script src="assets/js/jquery-1.11.2.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/contact.js"></script>
+    <script src="assets/js/jquery.flexslider.js"></script>
+	<script src="assets/js/script.js"></script>
+
+<script>
+var search ;
+$('#city_btn').click(function(){
+    search = $('#autocomplete').val();
+var city=$('#locality').val();
+console.log(city);
+//console.log(search);
+console.log(componentForm);
+});
+
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>
